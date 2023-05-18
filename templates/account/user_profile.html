@@ -1,0 +1,365 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Team In</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "icons/logo.ico" %}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/user_profile_style.css' %}">
+</head>
+<section>
+    <div class="container py-5 ">
+        <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <form method="post" id="user-profile-form">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-4 user-mini-profile">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="{{ user.avatar.url }}"
+                                 alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                            <h5 class="my-3">{{ user.user.first_name }} {{ user.user.last_name }}({{ user.user.username }})</h5>
+                            <p class="text-muted mb-1">{% if user.occupation %} {{ user.occupation }} {% endif %}</p>
+                            <p class="text-muted mb-4">{% if user.address %} {{ user.address }} {% endif %}</p>
+                            <div class="d-flex justify-content-center mb-2">
+                                <button type="button" id="enable-btn" class="btn btn-primary" style="font-weight: 800;">
+                                    Редагувати
+                                </button>
+                                <button type="button" id="disable-btn" class="btn btn-outline-primary ms-1"
+                                        style="font-weight: 800;">Зберегти
+                                </button>
+                                <a href="{% url 'logout' %}" class="btn btn-primary ms-1"
+                                   style="font-weight: 800;">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4 mb-lg-0">
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush rounded-3">
+                                <li class="list-group-item d-flex align-items-center p-3">
+                                    <img src="{% static 'icons/user_profile/icons8-telegram-app-48.png' %}"
+                                         alt="Social Media Icon" style="width: 30px;"/>
+                                    <div style="margin: 0"
+                                         class="d-flex w-100 align-items-center justify-content-around">
+                                        <label for="telegram" class="mb-0  align-middle ms-3">Telegram</label>
+                                        <input class="form-control w-100 mb-0 ms-3"
+                                               style="overflow-x: auto;max-width: 250px;"
+                                               type="text"
+                                               id="telegram"
+                                               name="telegram"
+                                               placeholder="Enter telegram username"
+                                               value={% if user.telegram %} {{ user.telegram }} {% else %} "" {% endif %}
+                                               disabled>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-center p-3">
+                                    <img src="{% static 'icons/user_profile/icons8-discord-48.png' %}"
+                                         alt="Social Media Icon" style="width: 30px;"/>
+                                    <div style="margin: 0"
+                                         class="d-flex w-100 align-items-center justify-content-around">
+                                        <label for="discord" class="mb-0 ms-3">Discord</label>
+                                        <input class="form-control w-100 mb-0 ms-3"
+                                               style="overflow-x: auto;max-width: 250px;"
+                                               type="text"
+                                               id="discord"
+                                               name="discord"
+                                               placeholder="Enter discord username"
+                                               value={% if user.discord %} {{ user.discord }} {% else %} "" {% endif %}
+                                               disabled>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-center p-3">
+                                    <img src="{% static 'icons/user_profile/icons8-github-48.png' %}"
+                                         alt="Social Media Icon" style="width: 30px;"/>
+                                    <div style="margin: 0"
+                                         class="d-flex w-100 align-items-center justify-content-around">
+                                        <label for="github" class="mb-0 ms-3">Github</label>
+                                        <input class="form-control w-100 mb-0 ms-3"
+                                               style="overflow-x: auto;max-width: 250px;"
+                                               type="text"
+                                               id="github"
+                                               name="github"
+                                               placeholder="Enter github username"
+                                               value={% if user.github %} {{ user.github }} {% else %} "" {% endif %}
+                                               disabled>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-center p-3">
+                                    <img src="{% static 'icons/user_profile/icons8-portfolio-48.png' %}"
+                                         alt="Social Media Icon" style="width: 30px;"/>
+                                    <div style="margin: 0"
+                                         class="d-flex w-100 align-items-center justify-content-around">
+                                        <label for="portfolio" class="mb-0 ms-3">Portfolio</label>
+                                        <input class="form-control w-100 mb-0 ms-3"
+                                               style="overflow-x: auto;max-width: 250px;"
+                                               type="text"
+                                               id="portfolio"
+                                               name="portfolio"
+                                               placeholder="Enter portfolio link"
+                                               value={% if user.portfolio %} {{ user.portfolio }} {% else %} "" {% endif %}
+                                               disabled>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row fullName">
+                                <div class="form-group col-sm-9">
+                                    <label class="mb-0" for="fullName">Full Name</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="fullName"
+                                           name="user_full_name"
+                                           placeholder="Enter full name"
+                                           value="{{ user.user.first_name }} {{ user.user.first_name }}"
+                                           disabled>
+
+                                </div>
+                            </div>
+                            <div class="row email">
+                                <div class="form-group col-sm-9">
+                                    <label class="mb-0" for="email">Email</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="email"
+                                           name="email"
+                                           placeholder="Enter email"
+                                           value='{% if user.user.email %} {{ user.user.email }} {% endif %}'
+                                                   disabled>
+                                </div>
+                            </div>
+                            <div class="row phone">
+                                <div class="form-group col-sm-9">
+                                    <label class="mb-0" for="phoneNumber">Phone</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="phoneNumber"
+                                           name="phone"
+                                           placeholder="Enter phone number"
+                                           value='{% if user.phone %} {{ user.phone }} {% else %} "" {% endif %}'
+                                           disabled>
+                                </div>
+                            </div>
+                            <div class="row address">
+                                <div class="form-group col-sm-9">
+                                    <label class="mb-0" for="userAddress">Address</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="userAddress"
+                                           name="address"
+                                           placeholder="Enter address"
+                                           value='{% if user.address %} {{ user.address }} {% else %} "" {% endif %}'
+                                           disabled>
+                                </div>
+                            </div>
+                            <div class="row ocupation">
+                                <div class="form-group col-sm-9">
+                                    <label class="mb-0" for="userOccupation">Occupation</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="userOccupation"
+                                           name="occupation"
+                                           placeholder="Enter occupation"
+                                           value='{% if user.occupation %} {{ user.occupation }} {% else %} "" {% endif %}'
+                                           disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <label style="padding: 15px" class="mb-0 h4" for="userDescription">Description</label>
+                        <textarea
+                                rows="5"
+                                id="userDescription"
+                                name="description"
+                                class="form-control"
+                                style="margin: 0 15px;
+                              max-width: 826px;
+                              min-height: 100px;
+                              max-height: 300px;" disabled>{% if user.description %} {{ user.description }} {% endif %}</textarea>
+                        <small style="padding-left: 15px">Max symbols: 1000</small>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div style="max-height: 100%;height: 350px;" class="col-md-6">
+                <div class="card mb-4 mb-md-0 hard h-100">
+                    <div class="card-body">
+                        <h4 class="text-center w-100 p-2" style="background-color: white; z-index: 1;">
+                            Hard Skills </h4>
+                        <div class="container">
+                            <div class="row gx-3 ">
+                                <div class="col-md-6">
+                                    <div class="w-100">
+                                        <div class="mb-0">
+                                            <div class="form-group">
+                                                <label class="mb-1 text-center" for="programmingLanguage">Write
+                                                    programming language</label>
+                                                <input type="text"
+                                                       class="form-control w-100"
+                                                       id="programmingLanguage"
+                                                       placeholder="Enter programming language"
+                                                       value=""
+                                                       disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-100">
+                                        <label style="padding:5px 0" class="mb-0 h6"
+                                               for="userHardSkillsDescription">Description</label>
+                                        <textarea
+                                                id="userHardSkillsDescription"
+                                                class="form-control mx-h-100"
+                                                style="max-height: 100px;"
+                                                disabled></textarea>
+                                        <small>Max symbols: 1000</small>
+                                        <button type="button" id="addBtnProgrammingLanguage"
+                                                class=" btn btn-primary w-100" style="margin-top: 10px" disabled>Add
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" style="border: 1px solid #bdbdbd;border-radius: 0.25rem;">
+                                    <ol class="list-group" id="scrollableList"
+                                        style="height: 100%;max-height: 200px;overflow-y: scroll">
+                                        {% for hard_skill in user.hard_skills.all %}
+                                            <li class="list-group-item deleteBtn mb-2 mt-2 d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div class="fw-bold ">{{ hard_skill.programming_language }}</div>
+                                                    {{ hard_skill.description }}
+                                                </div>
+                                                <button onclick="deleteLiElement(this)"
+                                                        style="color: #dc4c64;border: none;"
+                                                        class="cross-btn btn-danger badge rounded-pill">.
+                                                </button>
+                                            </li>
+                                        {% endfor %}
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="max-height: 100%;height: 350px;" class="col-md-6">
+                <div class="card mb-4 mb-md-0  h-100">
+                    <div class="card-body">
+                        <h4 class="text-center w-100 p-2" style="background-color: white; z-index: 1;">
+                            Languages </h4>
+                        <div class="container">
+                            <div class="row gx-3 ">
+                                <div class="col-md-6">
+                                    <div class="w-100">
+                                        <form class="mb-0">
+                                            <div class="form-group">
+                                                <label class="mb-3 text-center" for="language">Write
+                                                    language</label>
+                                                <input type="text"
+                                                       class="mb-3 form-control w-100"
+                                                       id="language"
+                                                       placeholder="Enter language"
+                                                       value=""
+                                                       disabled>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="w-100">
+                                        <form class="mb-0">
+                                            <div class="form-group">
+                                                <label class="mb-3 text-center" for="languageLevel">Write language
+                                                    level</label>
+                                                <input type="text"
+                                                       class="mb-2 form-control w-100"
+                                                       id="languageLevel"
+                                                       placeholder="Enter language level"
+                                                       value=""
+                                                       disabled>
+                                            </div>
+                                        </form>
+                                        <button type="button" id="addBtnLanguages" class="btn btn-primary w-100"
+                                                style="margin-top: 10px" disabled>Add
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" style="border: 1px solid #bdbdbd;border-radius: 0.25rem;">
+                                    <ol class="list-group" id="scrollableListLanguages"
+                                        style="height: 100%;max-height: 200px;overflow-y: scroll">
+                                        {% for languages in user.languages.all %}
+                                            <li class="list-group-item deleteBtn mb-2 mt-2 d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div class="fw-bold ">Language: {{ languages.language }}</div>
+                                                    Level: {{ languages.language_level }}
+                                                </div>
+                                                <button onclick="deleteLiElement(this)"
+                                                        style="color: #dc4c64;border: none;"
+                                                        class="cross-btn btn-danger badge rounded-pill">.
+                                                </button>
+                                            </li>
+                                        {% endfor %}
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="card mt-4">
+                <h4 class="text-center mt-4">My Projects</h4>
+                {% for project_info in user.projects.all %}
+                    <div class="card mb-3 w-100">
+                        <div class="row">
+                            <div class="card-body row">
+                                <div class="p-3 d-flex justify-content-center align-items-center flex-column  col-sm-4">
+                                    <h3 class="card-title text-center">{{ project_info.name_project }}</h3>
+                                    <h6 class="card-title text-center">{{ project_info.type_project }}</h6>
+                                </div>
+                                <div style="border-left: 1px solid #ccc" class="p-2 col-sm-8">
+                                    <h4 class="card-title text-center">Description</h4>
+                                    <p class="card-text">{{ project_info.description }}</p>
+                                    <div style="overflow-y: scroll"
+                                         class="d-flex w-100 justify-content-center align-items-end">
+                                        <div style="width: 100%;">
+                                            <hr>
+                                            <h5 style="overflow-y: scroll" class="card-title">
+                                                Contributors: {% for contributor in project_info.contributors.all %}
+                                                {{ contributor.user.first_name }} {{ contributor.user.last_name }},
+                                            {% endfor %}
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>

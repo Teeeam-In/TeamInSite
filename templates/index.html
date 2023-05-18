@@ -1,0 +1,431 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Team In</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'icons/logo.ico' %}"/>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/footer.css" %}">
+    <link rel="stylesheet" href="{% static "css/fonts.css" %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/uikit.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/header.css" %}">
+    <style>
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="mainpage" class="op0"></div>
+<div class="main_menu">
+    <div class="all">
+        <div class="container">
+            <div class="spisok row">
+                <a class="up col-12" href="index.html#mainpage">Team In</a>
+                <a class="up col-12" href="index.html#portfolio">Portfolio</a>
+                <a class="up col-12" href="index.html#courses">Courses</a>
+                <a class="up col-12" href="https://forms.gle/YhguiGFzX88wByQRA">Application</a>
+                <a class="up col-12" href="https://discord.gg/T4PS7Kx8WU">Discord</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="teamin d-flex align-items-center justify-content-center">Team In</div>
+<nav class="navbar navbar-expand fs-5 _anim-items _anim-no-hide">
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="navbar" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" href="#courses">Courses</a>
+                </li>
+                <li class="nav-link line">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-2" href="index.html">Team In</a>
+                </li>
+                <li class="nav-link line"></li>
+                <li class="nav-item">
+                    <a class="nav-link active " href="#portfolio">Portfolio</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {% if not user.is_authenticated %}
+        <span class="auth">
+            <a href="{% url 'login' %}">Log In</a> / <a href="{% url 'register' %}">Sign In</a>
+        </span>
+    {% else %}
+        <span class="auth">
+            <a href="{% url 'user_profile' %}">Account {{ user.username }}</a> / <a href="{% url 'logout' %}">Logout</a>
+        </span>
+    {% endif %}
+</nav>
+<div class="page1">
+    <p class="text1 _anim-items _anim-no-hide">Почни зараз<br>своє IT майбутнє</p>
+    <p class="text2 _anim-items _anim-no-hide">Приєднуйся до нас і гайда вивчати ІТ з користю і задоволенням</p>
+    <hr class="hrdown _anim-items _anim-no-hide">
+    <a id="discordlink" href="https://discord.gg/T4PS7Kx8WU" target="_self">
+        <p class="text3 _anim-items _anim-no-hide">Вся діяльність проводиться на Discord сервері, долучитись до якого
+            ти зможеш клікнувши по цьому посиланні</p>
+    </a>
+</div>
+<div class="page-2 row bg-white">
+    <div class="_anim-items _anim-no-hide col row justify-content-evenly align-items-center">
+        <div class="col-lg-4 text-center">
+            <p class="_anim-show1 title">Team In</p>
+            <p class="_anim-show1 under_title">Це новітня ІТ спільнота, створена для більш продуктивного вивчення
+                комп'ютерних технологій завдяки кооперуванню та ефективному обміну знаннями</p>
+        </div>
+        <div class="_anim-show col-lg-4 ">
+            <img class="img-fluid" src="{% static 'images/img1.jpg' %}" alt="...">
+        </div>
+    </div>
+    <div class="w-100 pdown"></div>
+    <div class="_anim-items _anim-no-hide col row justify-content-evenly align-items-center orderblock">
+        <div class="_anim-show col-lg-4">
+            <img class="img-fluid" src="{% static 'images/img2.jpg' %}" alt="...">
+        </div>
+        <div class="col-lg-4 text-center">
+            <p class="_anim-show2 title">Ідея</p>
+            <p class="_anim-show2 under_title">Полягає в тому щоб створити <br>спільноту Айтішніків, де ті могли
+                знаходити<br>друзів та команду за схожими інтересами,<br> об'єднуватись, створювати різні проекти,<br>
+                стартапи та отримувати від процесу<br> тільки позитивні емоції!</p>
+        </div>
+    </div>
+    <div class="w-100 pdown"></div>
+    <div class="_anim-items _anim-no-hide col row justify-content-evenly align-items-center">
+        <div class="col-lg-4 text-center">
+            <p class="_anim-show1 title">Можливості</p>
+            <p class="_anim-show1 under_title">
+                Поліпшення своїх навичків в ІТ сфері<br>
+                Доступ до допомоги 24/7 та тематичних каналів<br>
+                Отримання реальнних замовленнь<br>
+                Змога навчитися грамотному тайм-менеджменту <br>
+                Робота у дружній команді<br>
+                Втілення своєї ідеї</p>
+        </div>
+        <div class="_anim-show col-lg-4">
+            <img class="img-fluid" src="{% static 'images/img3.png' %}">
+        </div>
+    </div>
+</div>
+<div class="page3">
+    <div class="container mainblock_page3">
+        <div class="question_page3">Чому саме ми?</div>
+        <div class="_anim-items row justify-content-between">
+            <div class="_anim-show page3-row1 row col-lg-6 align-self-start otstup">
+                <div class="col-2 align-self-center"><img class="col-8 img-fluid" src="{% static 'icons/crowd.png' %}"></div>
+                <div class="name_text_page3 col-10 fs-2">Команда</div>
+                <div class="down_text_page3 col lh-sm pt-3">Наша команда складаєтсья з привітних учасників,
+                    які в будь-який момент можуть допомогти тобі або просто поспілкуватись.
+                </div>
+            </div>
+            <div class="_anim-show page3-row2 row col-lg-6 justify-content-end align-self-start otstup">
+                <div class="col-2 align-self-center"><img class="col-8 img-fluid" src="{% static 'icons/money.png' %}"></div>
+                <div class="name_text_page3 col-10 fs-2 font-weight-bold">Заробіток</div>
+                <div class="down_text_page3 col lh-sm pt-3">Створюючи проекти, ти маєш можливість отримувати за них
+                    монетизацію.<br>Також по бажанню можна брати індивідуальні замовлення у нашому спеціальному центрі.
+                </div>
+            </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="_anim-items row justify-content-between ">
+            <div class="_anim-show page3-row3 row col-lg-6 align-self-start otstup">
+                <div class="col-2 align-self-center"><img class="col-8 img-fluid" src="{% static 'icons/arrow.png' %}"></div>
+                <div class="name_text_page3 col-10 fs-2 ">Амбіції</div>
+                <div class="down_text_page3 col lh-sm pt-3">
+                    Ти працюватимеш в команді з професіоналами,
+                    які навчать тебе багато чого корисного. Водночас ти здобудеш крутий скіл та стаж,
+                    що неодмінно стане тобі в нагоді в майбутньому.
+                </div>
+            </div>
+            <div class="_anim-show page3-row4 row col-lg-6 justify-content-end align-self-start otstup">
+                <div class="col-2 align-self-center"><img class="col-8 img-fluid" src="{% static 'icons/help.png' %}"></div>
+                <div class="name_text_page3 col-10 fs-2">Допомога</div>
+                <div class="down_text_page3 col lh-sm pt-3">
+                    Перебуваючи у нашій спільноті, кожен має доступ до різних лайфхаків, порад, програм та багато
+                    іншого.
+                    При потребі більш кваліфіковані учасники радо тобі допоможуть.
+                </div>
+            </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="_anim-items row justify-content-between">
+            <div class="_anim-show page3-row5 row col-lg-6 align-self-start otstup">
+                <div class="col-2 align-self-center"><img class="col-8 img-fluid" src="{% static 'icons/coding.png' %}"></div>
+                <div class="name_text_page3 col-10 fs-2 ">Навчання</div>
+                <div class="down_text_page3 col lh-sm pt-3">
+                    З нами ти маєш всі шанси та можливості на стрімкий розвиток у
+                    будь-якій сфері ІТ. Беручи участь в різних проектах, ти не тільки прокачуєш
+                    навички в певній області, але й доповнюєш своє портфоліо крутими проектами!
+                </div>
+            </div>
+            <div class="_anim-show page3-row6 row col-lg-6 justify-content-end align-self-start otstup">
+                <div class="col-2 align-self-center"><img class="col-8 img-fluid" src="{% static 'icons/laugh.png' %}"></div>
+                <div class="name_text_page3 col-10 fs-2">Атмосфера</div>
+                <div class="down_text_page3 col lh-sm pt-3">
+                    На сервері дружня і приємна атмосфера.
+                    В вільний від проектів час можна позависати в різні ігри
+                    чи душевно поспілкуватись на різні теми.
+                </div>
+            </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="_anim-items row justify-content-between">
+            <div class="page3-row7 _anim-show row col-lg-6 align-self-start otstup">
+                <div class="col-2 align-self-center"><img class="col-8 img-fluid" src="{% static 'icons/idea.png' %}"></div>
+                <div class="name_text_page3 col-10 fs-2 ">Ідеї</div>
+                <div class="down_text_page3 col lh-sm pt-3">
+                    Одна з головних ідей спільноти - це допомога у розвитку кожного учасника як ІТ спеціаліста та його
+                    творчого потенціалу.
+                    Публікуй ідею, знаходь однодумців, та нумо втілювати твій проєкт в реальність!
+                </div>
+            </div>
+            <div class="page3-row8 _anim-show row col-lg-6 justify-content-end align-self-start otstup">
+                <div class="col-2 align-self-center"><img class="col-8 img-fluid" src="{% static 'icons/free.png' %}"></div>
+                <div class="name_text_page3 col-10 fs-2">Доступність</div>
+                <div class="down_text_page3 col lh-sm pt-3">
+                    Приєнання до спільноти, всі плюшки лайфхаки та допомога
+                    Є АБСОЛЮТНО БЕЗКОШТОВНОЮ.
+                    В цьому і полягає головна мета проекту - взаємодопомога.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="courses" class="page4">
+    <p class="pt-3 d-flex align-items-center justify-content-center title_page4">Courses</p>
+    <div uk-slider="center: true">
+        <ul class="_anim-items uk-slider-items uk-child-width-1-2@s uk-child-width-1-3@m uk-grid cen lol">
+            <li>
+                <div class="_anim-show tile cvet">
+                    <h1 class="">GameDev</h1>
+                    <div class="tupe"><img class="gamedevpic"/></div>
+                    <h2 class=" text animate-text">Хотів спробувати себе в GameDev, но не знав з чого почати?<br>Микола
+                        відкриє для тебе світ розробки ігор розкаже все що знає та створить з тобою твою першу гру!
+                    </h2>
+                    <div class=" dow animate  d-flex align-items-center  justify-content-center">Дізнатись більше</div>
+                </div>
+            </li>
+            <li>
+                <div class="_anim-show tile cvet">
+                    <h1 class="">Python</h1>
+                    <div class="tupe"><img class="pythonpic"/></div>
+                    <h2 class=" text animate-text">Хочеш дізнатись всі особливості мови Python?Створити власного бота
+                        або
+                        застосувати як бекенд сайту.Захар тобі в цьому допоможе! </h2>
+                    <div class=" dow animate  d-flex align-items-center  justify-content-center">Дізнатись більше</div>
+                </div>
+            </li>
+            <li>
+                <div class="_anim-show tile cvet">
+
+                    <div class="text">
+                        <h1>Скоро</h1>
+                        <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
+                        <p class="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola
+                            pork
+                            chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
+                        <div class="dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="_anim-show tile cvet">
+
+                    <div class="text">
+                        <h1>Скоро</h1>
+                        <h2 class="animate-text">More lorem ipsum bacon ipsum.</h2>
+                        <p class="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola
+                            pork
+                            chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
+                        <div class="dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            s
+            <li>
+                <div class="_anim-show tile cvet">
+                    <h1 class="">3D-modeling</h1>
+                    <div class="tupe"><img class="tdpic"/></div>
+                    <h2 class="text animate-text m-0">Не відчуваєш себе комфорно в кодингу? Спробуй 3D моделювання!
+                        Відкрий волю своїй фантазії та почни створювати неперевершені роботи. Іван створить з тобою
+                        перші
+                        моделі та розкаже тобі все до чого!</h2>
+                    <div class=" dow animate  d-flex align-items-center  justify-content-center">Дізнатись більше</div>
+                </div>
+            </li>
+        </ul>
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+           uk-slider-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+           uk-slider-item="next"></a>
+    </div>
+</div>
+<div id="portfolio" class="page5 p-1 pd-0 row justify-content-center">
+    <div class="info_page5">Portfolio</div>
+    <div class="otsTup">
+        <div class="row g-0 justify-content-center">
+            <div class="col-lg-8">
+                <div class="page5-row1 _anim-items _anim-no-hide row row1 g-0 justify-content-center">
+                    <a href="https://yandex.ua/games/play/151269/?app-id=151269#app-id=151269&catalog-session-uid=catalog-69a1cd72-dab0-5d81-927d-abde26d32926-1642346486356-45a2&rtx-reqid=1788814995883111639"
+                       target="_blank">
+                        <div class="page5-row1 _anim-items _anim-no-hide col-12">
+                            <div class="_anim-show stowbik1 block row1 b1">
+                                <img style="box-shadow: inset 0px 0px 40px 40px #ffffff;" src='{% static "images/tank.jpg" %}'/>
+                                <div class="text-center">
+                                    <h1>Super Panzer Tank 3D</h1>
+                                    <h2 class="animate-text">Флеш-гра</h2>
+                                    <p class="animate-text">Мультяшна та прикольна гра - стрілялка про танчики, схожа на
+                                        стару
+                                        добру "Тетріс" стрілялку.У грі є 3 рівні складності. На кожному рівні на вас
+                                        чекає 5
+                                        різноманітних та цікавих локацій та 6 локація - бос. Кожна локація має свою
+                                        музику та
+                                        особливості. Також у грі є можливість переключитися на 2D-режим із видом
+                                        зверху.</p>
+                                    <p class="animate-text">Розробник: Димков Микола</p>
+                                    <div class="mod animate"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="page5-row1 col-12">
+                        <a class="_anim-items _anim-no-hide" href="" target="_blank">
+                            <div class="_anim-show stowbik1 block row1 b2">
+                                <img src='{% static "images/spacetraveller.jpg" %}'/>
+                                <div class="text-center">
+                                    <h1>Space traveller</h1>
+                                    <h2 class="animate-text">Флеш-гра</h2>
+                                    <p class="animate-text">Проста гра жанру "ранер", в якій тобі вдастся відчути себе
+                                        пілотом
+                                        космічного корабля, облітати метеорити і збирати монети, за допомогою яких, ти
+                                        зможеш
+                                        поповнити свою колекцію. Змагайся з друзями, набирай найбільший рахунок і
+                                        здобувай
+                                        звання "Космічного капітана"</p>
+                                    <p class="animate-text">Розробник: Ковальський Кирило</p>
+                                    <div class="mod animate"></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="page5-row1 _anim-items _anim-no-hide col-12">
+                        <div class="_anim-show stowbik1 block row1 b3">
+                            <img src='{% static "images/TeamInSite.png" %}'/>
+                            <div class="text-center">
+                                <h1>Team In</h1>
+                                <h2 class="animate-text">Сайт спільноти</h2>
+                                <p class="animate-text">Лендінг-сайт був створений як візитка спільноти Team In за 4
+                                    тижні
+                                    людиною з 0 стажу в Web розробці.Сайт містить детальну інформацію про нашу
+                                    діяльність та
+                                    також виступає в ролі портфоліо всієї спільноти.</p>
+                                <p class="animate-text">Розробник: Киянець Артем</p>
+                                <div class="mod animate"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row g-0 justify-content-center">
+                    <a class="page5-row2" href="https://github.com/IT-Campkhm/IT-Camp-Bot-discord" target="_blank">
+                        <div class="_anim-items _anim-no-hide col-12">
+                            <div class="_anim-show stowbik2 block b4 text-center">
+                                <img src='{% static "icons/discord.png" %}'/>
+                                <div class="text-center">
+                                    <h1>Discord Bot</h1>
+                                    <h2 class="animate-text">Бот для сервера Team In</h2>
+                                    <p class="animate-text">Бот адміністратор діскорд серевера Team In.Допомагає новим
+                                        учаснками розібратсь з правилами та містить сстему керування учаснками.Також в
+                                        майбутньому буде додана система рівнів учасників.</p>
+                                    <p class="animate-text">Розробник: Фесік Захар</p>
+                                    <div class="mod animate"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="page5-row2" href="" target="_blank">
+                        <div class="_anim-items _anim-no-hide col-12">
+                            <div class="_anim-show stowbik2 block b5">
+                                <img src='{% static "images/gear.png" %}'/>
+                                <div class="text-center">
+                                    <h1>Game</h1>
+                                    <h2 class="animate-text">Кіберказуалка</h2>
+                                    <p class="animate-text">В розробці</p>
+                                    <div class="mod animate"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer text-center">
+    <div class="footer_over">Our social media</div>
+    <div class="d-flex justify-content-center">
+        <div class=" row pt-2">
+            <div class="col-3"><a href="https://discord.gg/EXXdfSWkDh"><img src="{% static 'icons/instagram.png' %}"></a></div>
+            <div class="col-3"><a href="https://t.me/TeeeamIn"><img src="{% static 'icons/telegram.png' %}"></a></div>
+            <div class="col-3"><a href="https://discord.gg/EXXdfSWkDh"><img src="{% static 'icons/discord.png' %}"></a></div>
+            <div class="col-3"><a href="https://github.com/Teeeam-In"><img src="{% static 'icons/github.png' %}"></a></div>
+        </div>
+    </div>
+    <div class="pt-2">Team In</div>
+    <div>© Copyright 2022 All Rights</div>
+    <div>Reserved. Privacy Policy. Terms of Use.</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.3/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.3/dist/js/uikit-icons.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static "js/animation.js" %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $('.menu_button').click(function (event) {
+            $('.main_menu').toggleClass('active');
+            $('.menu_button').toggleClass('active');
+            $('.circle1').toggleClass('active2');
+        });
+    });
+    $(document).ready(function () {
+        $('.up').click(function (event) {
+            $('.main_menu').toggleClass('active');
+            $('.menu_button').toggleClass('active');
+        });
+    });
+</script>
+</body>
+</html>

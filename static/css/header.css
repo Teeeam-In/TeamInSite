@@ -1,0 +1,238 @@
+
+
+/*          header         */
+.teamin
+{
+    padding-top: 1.5rem;
+    color: #478af5;
+    font-size: 3rem;
+    display: block;
+}
+.navbar
+{
+    display: none;
+}
+.navbar a, .navbar div
+{
+    color:#478af5;
+    font-family: 'Nunito', sans-serif!important;
+    padding-top: 0rem;
+}
+.navbar a:hover
+{
+    text-decoration: none!important;
+}
+.navbar-nav
+{
+    align-items: center;
+}
+.line{
+    background-color: #478af5;
+    width: 25px;
+    height: 0.5px;
+}
+.nav-link
+{
+    padding-top: 0rem!important;
+    padding-bottom: 0rem!important;
+}
+
+.circle1
+{
+    opacity: 0.5;
+    margin-top: -15%;
+    right:-3%;
+    height: 50px;
+    width: 50px;
+    background-color: #356bff;
+    border-radius: 50%;
+    display: block;
+    position: fixed;
+    z-index: 9998;
+    opacity: 1;
+}
+.circle1:hover
+{
+    right:0;
+    transition: all 0.2s ease-out;
+    opacity: 1;
+}
+.menu_button
+{
+    margin-left:11px;
+    margin-top:16px;
+    display:block;
+    position: fixed;
+    height: 20px;
+    width: 30px;
+    cursor:pointer;
+    z-index: 9997;
+/*     transition: all 0.4s ease-out; */
+}
+/* .menu_button:hover
+{
+    transform:scale(1.1);
+} */
+.menu_button:after
+{
+    content: '';
+    background-color: rgb(255, 255, 255);
+    height:2px;
+    width:100%;
+    position: absolute;
+    left:0;
+    bottom:0;
+    transition: all 0.4s ease-out;
+}
+.menu_button:before
+{
+    content: '';
+    background-color: rgb(255, 255, 255);
+    height:2px;
+    width:100%;
+    position: absolute;
+    left:0;
+    transition: all 0.2s ease-out;
+}
+.menu_button span
+{
+    content: '';
+    background-color: rgb(255, 255, 255);
+    height:2px;
+    width:100%;
+    position: absolute;
+    left:0;
+    top:9px;
+    transition: all 0.4s ease-out;
+}
+.menu_button.active:before
+{
+    transition: all 0.2s ease-out;
+    transform: rotate(45deg);
+    background-color: rgb(255, 255, 255);
+    top:9px;
+    transition: all 0.2s ease-out;
+}
+.menu_button.active
+{
+    transform: rotate(180deg);
+    transition: all 0.2s ease-out;
+    z-index: 9999!important;
+}
+.menu_button.active:after
+{
+    transition: all 0.2s ease-out;
+    transform: rotate(-45deg);
+    background-color: rgb(255, 255, 255);
+    bottom:9px;
+}
+.menu_button.active span
+{
+    transition: all 0.2s ease-out;
+    transform:scale(0);
+}
+.main_menu
+{
+    background: rgb(38, 38, 39);
+    color: white;
+    font-size: 3rem;
+    position: fixed;
+    z-index: 9996!important;
+    width:100%;
+    height:100%;
+    transition: all 0.6s ease-in-out;
+    transform: translateX(-100%);
+    opacity:0;
+    display:flex;
+    flex-direction: column;
+}
+.all
+{
+    flex:1 1 auto;
+}
+.active
+{
+    transform:translateX(0%);
+    opacity:1;
+}
+.navbar._anim-items{
+    transform: translate(0px, -50%);
+    opacity: 0;
+    transition: all 1s ease 0.5s;
+}
+.navbar._active {
+    transform: translate(0px,0px);
+    opacity: 1;
+}
+.TeamIn
+{
+    padding-top: 1rem!important;
+    padding-bottom: 1rem!important;
+    color: #fff;
+    font-size :2.5rem;
+}
+.spisok
+{
+    font-size :2rem;
+    text-align: center;
+}
+.up
+{
+    text-decoration: none!important;
+    color: #fff;
+    transform:translateX(0%);
+    transition: all 0.2s ease 0s;
+}
+.up:hover
+{
+    transform: translate(0px, -8%);
+    /* border-bottom: 3px solid #fff; */
+}
+
+.auth{
+    position: absolute;
+    top: 15px;
+    right: 0;
+    margin-right: 20px;
+}
+
+@media (min-width:768px)
+{
+    .teamin
+    {
+        display: none!important;
+    }
+    .navbar
+    {
+        display: block;
+    }
+    .circle1
+    {
+        background-color:rgb(255, 255, 255)!important;
+        margin-right:0%;
+        margin-top: -4.6%!important;
+        opacity: 0!important;
+    }
+    .menu_button:after,.menu_button:before,.menu_button span
+    {
+        background-color: #356bff!important;
+    }
+    .main_menu
+    {
+        width: 20%;
+    }
+}
+@media (min-width:1200px)
+{
+    .circle1
+    {
+        margin-top: -4.5%;
+        right:0%;
+    }
+    .circle1:hover
+    {
+        right:0%;
+    }
+
+}
+

@@ -1,0 +1,54 @@
+
+
+/*          footer        */
+
+
+.footer
+{
+    background-color: rgb(38, 38, 39);
+    font-size:0.8rem;
+    padding:0.8rem 0;
+    color: #fff;
+}
+.footer_over
+{
+    font-size: 1.4em;
+}
+.footer img
+{
+    max-width: 1.3rem;
+    cursor:pointer;
+}
+.icons
+{
+    max-height:2rem ;
+}
+.footer a 
+{
+    display: block; /* Ссылка как блочный элемент */
+    height: 100%;
+}
+@media (min-width:768px)
+{
+    .footer
+    {
+        background-color: rgb(38, 38, 39);
+        font-size:1rem;
+        padding:1rem 0;
+        color: #fff;
+    }
+    .footer_over
+    {
+        font-size: 1.4em;
+    }
+    .footer img
+    {
+        max-width: 1.5rem;
+        cursor:pointer;
+    }
+    .footer a 
+    {
+        display: block; /* Ссылка как блочный элемент */
+        height: 100%;
+    }
+}

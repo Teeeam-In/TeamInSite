@@ -1,0 +1,79 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'icons/logo.ico' %}"/>
+    <link rel="stylesheet" href="{% static "css/reg_form_style.css" %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet"/>
+    <title>Team In</title>
+</head>
+<body>
+<section class="vh-100 bg-image" style="background-image: {% static "images/background_test.jpg" %};">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <!-- todo make animation -->
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <a href="{% url 'index' %}">
+                                <div class="back"><img src="{% static 'icons/left-arrow.png' %}" alt=""></div>
+                            </a>
+                            <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="form-outline mb-4">
+                                    <input type="text" name="full_user_name" id="regFormName" class="form-control form-control-lg"/>
+                                    <label class="form-label" for="regFormName">Your Full Name</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="text" name="username" id="regFormNickname" class="form-control form-control-lg"/>
+                                    <label class="form-label" for="regFormNickname">Your Username</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="email" name="email_user" id="regFormNickname" class="form-control form-control-lg"/>
+                                    <label class="form-label" for="regFormNickname">Your Email</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="password" name="password_user" id="regFormPassword" class="form-control form-control-lg"/>
+                                    <label class="form-label" for="regFormPassword">Password</label>
+                                </div>
+
+                                <div class="form-check d-flex justify-content-center mb-5">
+                                    <input class="form-check-input me-2" type="checkbox" value=""
+                                           id="form2Example3cg"/>
+                                    <label class="form-check-label" for="form2Example3g">
+                                        I agree all statements in <a href="#!" class="text-body"><u>Terms of
+                                        service</u></a>
+                                    </label>
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit"
+                                            class="btn btn-block btn-lg gradient-custom-4 text-white">Register
+                                    </button>
+                                </div>
+
+                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a
+                                        href="{% url 'login' %}" class="fw-bold text-body"><u>Login here</u></a></p>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
+</body>
+</html>
